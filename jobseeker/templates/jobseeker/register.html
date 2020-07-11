@@ -1,0 +1,32 @@
+{% extends 'jobs/home.html' %}
+
+{% block content %}
+
+<div>
+	{% for message in messages %}
+	<h5>{{message}}</h5>
+	{% endfor %}
+</div>
+
+<br>
+<br>
+
+<h4> Register! </h4>
+
+<form method = "POST" action = "{% url 'register' %}">
+	{% csrf_token %}
+	Username : <br />
+	<input type="text" name="username" />
+	<br>
+	Password : <br />
+	<input type="password" name="pass1" />
+	<br>
+	Confirm Password : <br />
+	<input type="password" name="pass2" />
+	<br>
+	<br>
+	<input class = "btn btn-primary" type="submit" value = "Register!">
+
+</form>
+
+{% endblock %}
